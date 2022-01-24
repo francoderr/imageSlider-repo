@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body style="background-color: black;">
+        <button onclick="previmageSelector()">prev</button>
+        <img id="img" src="./img1.jpg" width="600px" height="600px" style="padding-left: 200px;"/>
+        <button onclick="nextimageSelector()">next</button>
+
+        <script>
+            let arr = [
+                "./img1.jpg",
+                "./img2.jpg",
+                "./img3.jpg",
+                "./img4.jpg",
+                "./img5.jpg"
+            ];
+
+            
+            let whichImage = 0;
+            function nextimageSelector () {
+                if (whichImage == arr.length-1) {
+                    whichImage = 0
+                } else {
+                    whichImage++;
+                }
+                let current = document.getElementById("img");
+                current.src = arr[whichImage];
+            }
+            
+            function previmageSelector () {
+                // let whichImage = 2
+                let current = document.getElementById("img");
+                whichImage --;
+                if (whichImage < 0) {
+                    whichImage = arr.length - 1
+                }
+                current.src = arr[whichImage];
+            }
+
+
+        </script>
+    </body>
+</html>
